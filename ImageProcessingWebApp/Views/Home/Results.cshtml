@@ -1,0 +1,23 @@
+@{
+    var totalTime = ViewBag.TotalTime;
+    var imagesPerWorker = ViewBag.ImagesPerWorker;
+}
+
+<div>
+    <h2>Job Results</h2>
+    <p>Total Time: @totalTime minutes</p>
+    <h3>Images Edited by Each Worker:</h3>
+    <ul>
+        @if (imagesPerWorker != null)
+        {
+            @foreach (var worker in imagesPerWorker)
+            {
+                <li>@worker.Key: @worker.Value images</li>
+            }
+        }
+        else
+        {
+            <li>No workers found.</li>
+        }
+    </ul>
+</div>
